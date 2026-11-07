@@ -1,0 +1,18 @@
+# Paid service + persistent disk. Review Render's price before deploying.
+services:
+  - type: web
+    name: studio-desk-workspace
+    runtime: docker
+    plan: 0.5c-512mb
+    numInstances: 1
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+    disk:
+      name: studio-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: STUDIO_PASSWORD
+        sync: false

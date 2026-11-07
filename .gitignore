@@ -43,3 +43,7 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Independent server data and generated frontend
+/data/
+/standalone-dist/

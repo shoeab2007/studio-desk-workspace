@@ -16,6 +16,15 @@ Private source repository for Shoaib's graphic design and brand communication wo
 
 Service areas: event posters, packaging, print and digital media, social media handling, flex/signage and brand design. Portfolio: https://shoeab2007.github.io/portfolio/
 
+## Independent hosting
+
+A standalone version with its own Studio Desk password login, SQLite storage, Dockerfile and Render Blueprint is included. It does not require a ChatGPT account. See [independent hosting instructions](docs/independent-hosting.md). Deployment requires a hosting account, a password set as a host secret, a persistent disk and approval of hosting costs. No independent service is claimed live until deployment is verified.
+
+```sh
+pnpm run build:standalone
+pnpm run test:standalone
+```
+
 ## Continue in Codex
 
 Use this repository as the project source. Read `AGENTS.md` before making changes. The complete application, database schema, migration, lockfile and tests are included.
@@ -61,6 +70,6 @@ This repository is a source copy of the deployed Site. GitHub pushes do **not** 
 
 Records live in the hosted D1 database, separately from GitHub. No live client records, credentials or database backups are included. The three starter projects are labelled examples. Export a workspace JSON backup from Settings before importing data or changing hosting.
 
-This is a server-backed Cloudflare Worker application with D1 and platform-provided authentication. GitHub Pages cannot run it. Moving to a different host requires adapting authentication and database bindings; never trust caller-supplied identity headers on an unprotected public host.
+The original Sites deployment is a Cloudflare Worker with D1 and platform-provided authentication. The standalone deployment uses `standalone/server.mjs`, its own password sessions and SQLite. Neither backend can run on GitHub Pages. Never expose the original identity-header API directly on an unprotected host.
 
 Outreach, client approval entry and social publishing are manual. The content calendar does not publish posts automatically.

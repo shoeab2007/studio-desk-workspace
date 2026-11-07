@@ -1,6 +1,6 @@
 # Studio Desk — Shoaib
 
-Private source repository for Shoaib's graphic design and brand communication workspace.
+Source for Shoaib's graphic design and brand communication workspace.
 
 **Live workspace:** https://shoaib-creative-workspace.shoea-b.chatgpt.site
 
@@ -16,7 +16,17 @@ Private source repository for Shoaib's graphic design and brand communication wo
 
 Service areas: event posters, packaging, print and digital media, social media handling, flex/signage and brand design. Portfolio: https://shoeab2007.github.io/portfolio/
 
-## Independent hosting
+## Free GitHub Pages hosting
+
+The `build:pages` target runs entirely in your browser, without ChatGPT or a backend. It saves records in browser IndexedDB. No automatic device sync or server login is included. Export/import JSON backups to move records between devices; clearing browser storage removes local data. Saved client records are never committed to this repository.
+
+See [GitHub Pages setup and data behavior](docs/github-pages.md). `.github/workflows/pages.yml` builds and deploys after Pages is enabled with GitHub Actions as its source.
+
+```sh
+pnpm run build:pages
+```
+
+## Independent server hosting
 
 A standalone version with its own Studio Desk password login, SQLite storage, Dockerfile and Render Blueprint is included. It does not require a ChatGPT account. See [independent hosting instructions](docs/independent-hosting.md). Deployment requires a hosting account, a password set as a host secret, a persistent disk and approval of hosting costs. No independent service is claimed live until deployment is verified.
 

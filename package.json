@@ -14,7 +14,8 @@
     "db:generate": "drizzle-kit generate",
     "build:standalone": "vite build --config standalone/vite.config.ts",
     "start:standalone": "node standalone/server.mjs",
-    "test:standalone": "node --test tests/standalone.test.mjs"
+    "test:standalone": "node --test tests/standalone.test.mjs",
+    "build:pages": "vite build --config standalone/vite.config.ts --mode pages"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

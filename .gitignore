@@ -47,3 +47,5 @@ yarn-error.log*
 # Independent server data and generated frontend
 /data/
 /standalone-dist/
+
+/pages-dist/

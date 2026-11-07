@@ -1,10 +1,12 @@
 # Free GitHub Pages workspace
 
-This build is a static, browser-only version. It runs without ChatGPT, Render, a server password or a hosted database.
+This build is a static, browser-only version. It runs without ChatGPT, Render, a hosted server or database. A local password unlocks encrypted records on each browser.
 
 ## Data behavior
 
-Records are stored in this browser's IndexedDB. The public repository contains code and labelled example records, never your saved client records. There is no server login, encryption of browser records, cloud backup or automatic phone/laptop sync. Anyone using this browser profile on your device can open its records.
+Records are stored in this browser's IndexedDB. The public repository contains code and labelled example records, never your saved client records. Records are encrypted using AES-GCM and a password-derived key (PBKDF2-SHA-256, 600,000 iterations). There is no server login, recovery account, cloud backup or automatic phone/laptop sync. The first visit asks you to create a password for that browser. A reload or the Lock workspace button requires the password again. Each browser has its own setup. Existing unencrypted browser records are migrated into encrypted storage when the password is created.
+
+There is **no password recovery**. Export a JSON backup while signed in and keep it safe; exported backups are unencrypted. Clearing browser data removes the vault. A forgotten password cannot decrypt the saved records. Browser encryption protects stored records while locked; use a trusted browser/device and lock after use.
 
 - Export a JSON backup regularly using the banner or Settings.
 - Export on one device and import on the other to move records.
@@ -26,6 +28,7 @@ The workflow builds `pages-dist` with the repository subpath `/studio-desk-works
 ```sh
 pnpm install --frozen-lockfile
 pnpm exec tsc --noEmit
+pnpm run test:vault
 pnpm run build:pages
 ```
 

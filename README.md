@@ -18,7 +18,7 @@ Service areas: event posters, packaging, print and digital media, social media h
 
 ## Free GitHub Pages hosting
 
-The `build:pages` target runs entirely in your browser, without ChatGPT or a backend. It saves records in browser IndexedDB. No automatic device sync or server login is included. Export/import JSON backups to move records between devices; clearing browser storage removes local data. Saved client records are never committed to this repository.
+The `build:pages` target runs entirely in your browser, without ChatGPT or a backend. It saves records in browser IndexedDB. The login screen creates a local password and encrypts this browser’s records. No shared online account or automatic device sync is included. There is no password recovery; keep a separate JSON backup. Export/import JSON backups to move records between devices; clearing browser storage removes local data. Saved client records are never committed to this repository.
 
 See [GitHub Pages setup and data behavior](docs/github-pages.md). `.github/workflows/pages.yml` builds and deploys after Pages is enabled with GitHub Actions as its source.
 

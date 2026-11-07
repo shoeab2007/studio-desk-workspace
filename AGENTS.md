@@ -33,3 +33,7 @@ The independent Docker/Render app uses `standalone/server.mjs` and `standalone/v
 ## GitHub Pages mode
 
 The user explicitly chose free GitHub-only hosting. Preserve this browser-only mode (`browserOnly` prop), IndexedDB transactional revision checks and clear local-storage notices. Never upload real client records or backups to the public repository. No server login or cross-device sync is promised. Export/import backups remain available. Use `pnpm run build:pages` and `pnpm exec tsc --noEmit`. Workflow: `.github/workflows/pages.yml`; base path `/studio-desk-workspace/`.
+
+### Browser password vault
+
+Pages uses `app/pages-login.tsx`, `browser-storage.ts` and `vault-crypto.ts`. Encrypt stored records with AES-GCM and a PBKDF2-derived nonextractable key kept only in memory. Preserve transactional migration of old plaintext records, revision checks, per-browser setup and lock-on-reload behavior. Never hardcode a password or present local authentication as a shared online account. Run `pnpm run test:vault` after vault changes. JSON exports are unencrypted backups; keep this clear in the UI/docs.
